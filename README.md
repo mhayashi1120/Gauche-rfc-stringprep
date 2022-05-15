@@ -1,3 +1,4 @@
+# Gauche-rfc-stringprep
 
 http://docs.python.jp/2/library/stringprep.html
 
@@ -10,4 +11,22 @@ RFC 3491
    [NAMEPREP]   Hoffman, P. and M. Blanchet, "Nameprep: A Stringprep
                 Profile for Internationalized Domain Names (IDN)", RFC
                 3491, March 2003.
+
+
+https://www.ipsj.or.jp/dp/contents/publication/37/S1001-T05.html
+
+
+https://www.rfc-editor.org/rfc/rfc3454.txt
+https://www.rfc-editor.org/rfc/rfc3491.txt
+https://www.rfc-editor.org/rfc/rfc8264.txt
+https://www.rfc-editor.org/rfc/rfc7790.txt
+
+
+## First plan
+
+- canonicalize by `stringprep`
+- extend string-downcase / string-upcase (or simply introduce other procedure)
+- stringprep=? (and other comparetor stringprep>=? stringprep<=? ...)
+- TODO support kana <-> hankaku-kana seems not prepared in rfc3454.txt
+
 

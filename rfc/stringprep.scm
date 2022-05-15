@@ -1,8 +1,22 @@
 (define-module rfc.stringprep
   (use text.tr)
-  (export)
+  (use rfc.stringprep.table)
+  (export
+   stringprep
    )
+  )
 (select-module rfc.stringprep)
+
+;; Module concepts:
+;; - Only support utf-8 environment.
+;; 
+
+(cond-expand
+ [gauche.ces.utf8]
+ [else
+  (error "Failed load the library since not utf-8 environment.")]
+ )
+
 
 ;; TODO build-transliterator from text.tr
 
@@ -13,8 +27,14 @@
   )
 
 ;;TODO
+(define (stringprep-canonicalize s)
+  )
+
+;;TODO
 (define (stringprep-canonicalize! s)
   )
+
+(define stringprep stringprep-canonicalize)
 
 (define (stringprep=? s1 s2)
   )

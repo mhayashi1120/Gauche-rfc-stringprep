@@ -28,5 +28,6 @@ https://www.rfc-editor.org/rfc/rfc7790.txt
 - extend string-downcase / string-upcase (or simply introduce other procedure)
 - stringprep=? (and other comparetor stringprep>=? stringprep<=? ...)
 - TODO support kana <-> hankaku-kana seems not prepared in rfc3454.txt
+- first implementation is just same as example1.c (located `/usr/share/doc/libidn11-dev/examples/` on debian apt)
 
 

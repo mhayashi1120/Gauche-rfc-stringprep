@@ -18,6 +18,18 @@
 
 ;; Here you can add feature tests and other cf-define's.
 
+(cf-check-headers '("stringprep.h"))
+
+;; TODO Check the settings valid or not. not enough understand yet.
+
+(unless (cf-package-ref 'libidn)
+  (cf-check-lib "idn" "stringprep"
+                :if-not-found
+                (^l
+                 (format (current-error-port) "Error: libidn is required.\n")
+                 (exit 1))
+                ))
+
 ;; Output
 (cf-output-default)
 

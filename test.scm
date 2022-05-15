@@ -12,7 +12,7 @@
 ;; The following is a dummy test code.
 ;; Replace it for your tests.
 (test* "test-gauche_rfc_stringprep" #t
-       (boolean #?= stringprep))
+       (boolean #?= (stringprep "A")))
 
 ;; If you don't want `gosh' to exit with nonzero status even if
 ;; the test fails, pass #f to :exit-on-failure.

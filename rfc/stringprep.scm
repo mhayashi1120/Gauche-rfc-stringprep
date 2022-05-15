@@ -5,6 +5,8 @@
    stringprep
    )
   )
+(dynamic-load "gauche_rfc_stringprep")
+
 (select-module rfc.stringprep)
 
 ;; Module concepts:

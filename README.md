@@ -22,6 +22,11 @@ https://www.rfc-editor.org/rfc/rfc8264.txt
 https://www.rfc-editor.org/rfc/rfc7790.txt
 
 
+ref: https://qiita.com/fury00812/items/b98a7f9428d1395fc230
+
+
+ref: Gauche git ext/charconv/jconv.c
+
 ## First plan
 
 - canonicalize by `stringprep`

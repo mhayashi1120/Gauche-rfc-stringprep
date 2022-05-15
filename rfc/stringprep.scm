@@ -2,10 +2,8 @@
   (use gauche.unicode)
   (use text.tr)
   (export
-   stringprep
-   stringprep-downcase
-   stringprep-upcase
-   stringprep-canonicalize stringprep-canonicalize!
+   stringprep stringprep-canonicalize
+   ;; stringprep-downcase stringprep-upcase
    stringprep=? stringprep<=? stringprep>=?
    stringprep<? stringprep>?
    stringprep-ci=? stringprep-ci<=? stringprep-ci>=?
@@ -36,23 +34,26 @@
 ;;; Entry point
 ;;;
 
-;; TODO stringprep -> stringprep-downcase
-(define (stringprep-downcase s)
-  )
+;; TODO stringprep -> call-stringprep-downcase
+;; (define (stringprep-downcase s)
+;;   )
 
-;; TODO stringprep -> stringprep-upcase
-(define (stringprep-upcase s)
-  )
-
-;;TODO
-(define (stringprep-canonicalize s)
-  )
+;; TODO stringprep -> call-stringprep-upcase
+;; -> reconsider. maybe alread stringprep then need just upcase/downcase
+;; (define (stringprep-upcase s)
+;;   )
 
 ;;TODO
-(define (stringprep-canonicalize! s)
+;; Maybe introduce destructive type `stringprep!`
+;; keyword should support:
+;; - NFKC / NFC like symbol ref https://qiita.com/fury00812/items/b98a7f9428d1395fc230
+;; - stringprep profiles.
+;; - stringprep tables.
+;; - stringprep flags. (with `logior`)
+(define (stringprep s :key)
   )
 
-(define stringprep stringprep-canonicalize)
+(define stringprep-normalize stringprep)
 
 ;;;
 ;;; Basic comparer

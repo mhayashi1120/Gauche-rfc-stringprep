@@ -1,10 +1,10 @@
 /*
- * gauche_rfc_stringprep.h
+ * local_rfc_stringprep.h
  */
 
 /* Prologue */
-#ifndef GAUCHE_GAUCHE_RFC_STRINGPREP_H
-#define GAUCHE_GAUCHE_RFC_STRINGPREP_H
+#ifndef GAUCHE_LOCAL_RFC_STRINGPREP_H
+#define GAUCHE_LOCAL_RFC_STRINGPREP_H
 
 #include <gauche.h>
 #include <gauche/extend.h>
@@ -16,9 +16,9 @@ SCM_DECL_BEGIN
  * Replace it for your declarations.
  */
 
-extern ScmObj test_gauche_rfc_stringprep(void);
+extern ScmObj lib_rfc_stringprep(void);
 
 /* Epilogue */
 SCM_DECL_END
 
-#endif  /* GAUCHE_GAUCHE_RFC_STRINGPREP_H */
+#endif  /* GAUCHE_LOCAL_RFC_STRINGPREP_H */

@@ -2,15 +2,15 @@
   (use gauche.unicode)
   (use text.tr)
   (export
-   stringprep stringprep-canonicalize
+   stringprep stringprep-normalize
    ;; stringprep-downcase stringprep-upcase
-   stringprep=? stringprep<=? stringprep>=?
-   stringprep<? stringprep>?
-   stringprep-ci=? stringprep-ci<=? stringprep-ci>=?
-   stringprep-ci<? stringprep-ci>?
+   ;; stringprep=? stringprep<=? stringprep>=?
+   ;; stringprep<? stringprep>?
+   ;; stringprep-ci=? stringprep-ci<=? stringprep-ci>=?
+   ;; stringprep-ci<? stringprep-ci>?
    )
   )
-(dynamic-load "gauche_rfc_stringprep")
+(dynamic-load "local_rfc_stringprep")
 
 (select-module rfc.stringprep)
 
@@ -59,39 +59,39 @@
 ;;; Basic comparer
 ;;;
 
-(define (%wrap-comparer pred s1 s2)
-  (pred (stringprep s1) (stringprep s2)))
+;; (define (%wrap-comparer pred s1 s2)
+;;   (pred (stringprep s1) (stringprep s2)))
 
-(define (%wrap-comparer-ci pred s1 s2)
-  (pred (stringprep-downcase s1) (stringprep-downcase s2)))
+;; (define (%wrap-comparer-ci pred s1 s2)
+;;   (pred (stringprep-downcase s1) (stringprep-downcase s2)))
 
-(define (stringprep=? s1 s2)
-  (%wrap-comparer string=? s1 s2))
+;; (define (stringprep=? s1 s2)
+;;   (%wrap-comparer string=? s1 s2))
 
-(define (stringprep>? s1 s2)
-  (%wrap-comparer string>? s1 s2))
+;; (define (stringprep>? s1 s2)
+;;   (%wrap-comparer string>? s1 s2))
 
-(define (stringprep<? s1 s2)
-  (%wrap-comparer string<? s1 s2))
+;; (define (stringprep<? s1 s2)
+;;   (%wrap-comparer string<? s1 s2))
 
-(define (stringprep>=? s1 s2)
-  (%wrap-comparer string>=? s1 s2))
+;; (define (stringprep>=? s1 s2)
+;;   (%wrap-comparer string>=? s1 s2))
 
-(define (stringprep<=? s1 s2)
-  (%wrap-comparer string<=? s1 s2))
+;; (define (stringprep<=? s1 s2)
+;;   (%wrap-comparer string<=? s1 s2))
 
-(define (stringprep-ci=? s1 s2)
-  (%wrap-comparer-ci string-ci=? s1 s2))
+;; (define (stringprep-ci=? s1 s2)
+;;   (%wrap-comparer-ci string-ci=? s1 s2))
 
-(define (stringprep-ci>? s1 s2)
-  (%wrap-comparer-ci string-ci>? s1 s2))
+;; (define (stringprep-ci>? s1 s2)
+;;   (%wrap-comparer-ci string-ci>? s1 s2))
 
-(define (stringprep-ci<? s1 s2)
-  (%wrap-comparer-ci string-ci<? s1 s2))
+;; (define (stringprep-ci<? s1 s2)
+;;   (%wrap-comparer-ci string-ci<? s1 s2))
 
-(define (stringprep-ci>=? s1 s2)
-  (%wrap-comparer-ci string-ci>=? s1 s2))
+;; (define (stringprep-ci>=? s1 s2)
+;;   (%wrap-comparer-ci string-ci>=? s1 s2))
 
-(define (stringprep-ci<=? s1 s2)
-  (%wrap-comparer-ci string-ci<=? s1 s2))
+;; (define (stringprep-ci<=? s1 s2)
+;;   (%wrap-comparer-ci string-ci<=? s1 s2))
 

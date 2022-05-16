@@ -1,0 +1,17 @@
+;;;
+;;; local_rfc_stringpreplib.stub
+;;;
+
+(declcode
+ (.include "local_rfc_stringprep.h"))
+
+;; The following entry is a dummy one.
+;; Replace it for your definitions.
+
+(define-cproc call-stringprep (s::<string>)
+  (return (lib_rfc_stringprep)))
+
+
+;; Local variables:
+;; mode: scheme
+;; end:

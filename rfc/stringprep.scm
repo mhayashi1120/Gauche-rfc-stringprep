@@ -6,7 +6,7 @@
    ;; stringprep-downcase stringprep-upcase
    )
   )
-(dynamic-load "local_rfc_stringprep")
+(dynamic-load "rfc__stringprep")
 
 (select-module rfc.stringprep)
 
@@ -38,6 +38,11 @@
 ;; -> reconsider. maybe alread stringprep then need just upcase/downcase
 (define (stringprep-upcase s)
   (error "Not yet implemented"))
+
+;; keyword (profile "Nameprep")
+;; Supported profiles:
+;; "Nameprep" / "KRBprep" / "Nodeprep"/ "Resourceprep"
+;; "plain"/ "trace"/ "SASLprep"/ "ISCSIprep"/ "iSCSI"
 
 ;;TODO
 ;; Maybe introduce destructive type `stringprep!`

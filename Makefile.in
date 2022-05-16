@@ -30,8 +30,11 @@ LOCAL_PATHS = "@LOCAL_PATHS@"
 # Module-specific stuff
 PACKAGE   = Gauche-rfc-stringprep
 
-ARCHFILES = local_rfc_stringprep.$(SOEXT)
-SCMFILES  = $(srcdir)/local_rfc_stringprep.scm
+ARCH_CORE_NAME = rfc__stringprep
+ARCH_CORE_MODULE = $(ARCH_CORE_NAME).$(SOEXT)
+
+ARCHFILES = $(ARCH_CORE_MODULE)
+SCMFILES  = $(srcdir)/rfc/stringprep.scm
 HEADERS   =
 
 TARGET    = $(ARCHFILES)
@@ -48,11 +51,11 @@ gauche_rfc_stringprep_HDRS = $(srcdir)/local_rfc_stringprep.h
 
 all : $(TARGET)
 
-local_rfc_stringprep.$(SOEXT): $(gauche_rfc_stringprep_SRCS) $(gauche_rfc_stringprep_HDRS)
+$(ARCH_CORE_MODULE): $(gauche_rfc_stringprep_SRCS) $(gauche_rfc_stringprep_HDRS)
 	$(GAUCHE_PACKAGE) compile \
 	  --cppflags="$(CPPFLAGS)" --cflags="$(CFLAGS)" \
 	  --ldflags="$(LDFLAGS)" --libs="$(LIBS)" \
-	  --local=$(LOCAL_PATHS) --verbose local_rfc_stringprep $(gauche_rfc_stringprep_SRCS)
+	  --local=$(LOCAL_PATHS) --verbose $(ARCH_CORE_NAME) $(gauche_rfc_stringprep_SRCS)
 
 check : all
 	@rm -f test.log
@@ -71,7 +74,7 @@ uninstall :
 	$(INSTALL) -U $(GAUCHE_PKGLIBDIR)/.packages $(PACKAGE).gpd
 
 clean :
-	$(GAUCHE_PACKAGE) compile --clean local_rfc_stringprep $(gauche_rfc_stringprep_SRCS)
+	$(GAUCHE_PACKAGE) compile --clean $(ARCH_CORE_NAME) $(gauche_rfc_stringprep_SRCS)
 	rm -rf core $(TARGET) $(CLEANFILES) *~ test.log so_locations
 
 distclean : clean

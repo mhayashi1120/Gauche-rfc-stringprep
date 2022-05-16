@@ -16,7 +16,12 @@
 
 
 (test* "test-local_rfc_stringprep" #t
-       (boolean #?= (stringprep "アｱＡａα")))
+       ;; \uFB17: ARMENIAN SMALL LIGATURE MEN XEH
+       ;; TODO others
+       (boolean #?= (stringprep "アｱＡａαΑ\uFB17")))
+
+;; TODO check array size is changed conversion.
+
 
 ;; If you don't want `gosh' to exit with nonzero status even if
 ;; the test fails, pass #f to :exit-on-failure.

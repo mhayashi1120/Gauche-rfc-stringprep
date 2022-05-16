@@ -1,3 +1,5 @@
+#include <stringprep.h>
+
 /*
  * local_rfc_stringprep.c
  */
@@ -9,9 +11,25 @@
  * your C function definitions.
  */
 
-ScmObj lib_rfc_stringprep(void)
+ScmString * lib_rfc_stringprep(ScmString * s)
 {
-    return SCM_MAKE_STR("local_rfc_stringprep is working");
+    const char * cStr = Scm_GetStringConst(s);
+    const int stringSize = SCM_STRING_SIZE(s);
+    char * buf = SCM_NEW_ATOMIC_ARRAY(char, stringSize);
+
+    memset(buf, 0, stringSize);
+    memcpy(buf, cStr, stringSize);
+
+    int rc = stringprep(buf, stringSize, 0, stringprep_nameprep);
+
+  if (rc != STRINGPREP_OK) {
+      printf ("Stringprep failed (%d): %s\n", rc, stringprep_strerror (rc));
+      /* TODO raise error? */
+      /* return SCM_MAKE_STR(sprintf("Error: %s", stringprep_strerror (rc)));; */
+      return SCM_STRING(SCM_MAKE_STR(stringprep_strerror (rc)));
+  }
+  
+  return SCM_STRING(SCM_MAKE_STR(buf));
 }
 
 /*

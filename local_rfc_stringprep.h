@@ -16,7 +16,7 @@ SCM_DECL_BEGIN
  * Replace it for your declarations.
  */
 
-extern ScmObj lib_rfc_stringprep(void);
+extern ScmString * lib_rfc_stringprep(ScmString * s);
 
 /* Epilogue */
 SCM_DECL_END

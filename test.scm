@@ -16,7 +16,7 @@
 
 
 (test* "test-local_rfc_stringprep" #t
-       (boolean #?= (stringprep "アｱＡａ")))
+       (boolean #?= (stringprep "アｱＡａα")))
 
 ;; If you don't want `gosh' to exit with nonzero status even if
 ;; the test fails, pass #f to :exit-on-failure.

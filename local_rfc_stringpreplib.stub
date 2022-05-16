@@ -8,8 +8,8 @@
 ;; The following entry is a dummy one.
 ;; Replace it for your definitions.
 
-(define-cproc call-stringprep (s::<string>)
-  (return (lib_rfc_stringprep)))
+(define-cproc call-stringprep (s::<string>) ::<string>
+  (return (lib_rfc_stringprep s)))
 
 
 ;; Local variables:

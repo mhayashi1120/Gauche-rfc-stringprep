@@ -47,7 +47,7 @@
 ;; - stringprep tables.
 ;; - stringprep flags. (with `logior`)
 (define (stringprep s :key)
-  )
+  (call-stringprep s))
 
 (define stringprep-normalize stringprep)
 

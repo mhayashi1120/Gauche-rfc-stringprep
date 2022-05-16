@@ -4,10 +4,6 @@
   (export
    stringprep stringprep-normalize
    ;; stringprep-downcase stringprep-upcase
-   ;; stringprep=? stringprep<=? stringprep>=?
-   ;; stringprep<? stringprep>?
-   ;; stringprep-ci=? stringprep-ci<=? stringprep-ci>=?
-   ;; stringprep-ci<? stringprep-ci>?
    )
   )
 (dynamic-load "local_rfc_stringprep")
@@ -35,13 +31,13 @@
 ;;;
 
 ;; TODO stringprep -> call-stringprep-downcase
-;; (define (stringprep-downcase s)
-;;   )
+(define (stringprep-downcase s)
+  (error "Not yet implemented"))
 
 ;; TODO stringprep -> call-stringprep-upcase
 ;; -> reconsider. maybe alread stringprep then need just upcase/downcase
-;; (define (stringprep-upcase s)
-;;   )
+(define (stringprep-upcase s)
+  (error "Not yet implemented"))
 
 ;;TODO
 ;; Maybe introduce destructive type `stringprep!`
@@ -54,44 +50,4 @@
   )
 
 (define stringprep-normalize stringprep)
-
-;;;
-;;; Basic comparer
-;;;
-
-;; (define (%wrap-comparer pred s1 s2)
-;;   (pred (stringprep s1) (stringprep s2)))
-
-;; (define (%wrap-comparer-ci pred s1 s2)
-;;   (pred (stringprep-downcase s1) (stringprep-downcase s2)))
-
-;; (define (stringprep=? s1 s2)
-;;   (%wrap-comparer string=? s1 s2))
-
-;; (define (stringprep>? s1 s2)
-;;   (%wrap-comparer string>? s1 s2))
-
-;; (define (stringprep<? s1 s2)
-;;   (%wrap-comparer string<? s1 s2))
-
-;; (define (stringprep>=? s1 s2)
-;;   (%wrap-comparer string>=? s1 s2))
-
-;; (define (stringprep<=? s1 s2)
-;;   (%wrap-comparer string<=? s1 s2))
-
-;; (define (stringprep-ci=? s1 s2)
-;;   (%wrap-comparer-ci string-ci=? s1 s2))
-
-;; (define (stringprep-ci>? s1 s2)
-;;   (%wrap-comparer-ci string-ci>? s1 s2))
-
-;; (define (stringprep-ci<? s1 s2)
-;;   (%wrap-comparer-ci string-ci<? s1 s2))
-
-;; (define (stringprep-ci>=? s1 s2)
-;;   (%wrap-comparer-ci string-ci>=? s1 s2))
-
-;; (define (stringprep-ci<=? s1 s2)
-;;   (%wrap-comparer-ci string-ci<=? s1 s2))
 

@@ -36,9 +36,13 @@
        ;; \u33C6: 1 ucs to 4 ucs -> "c∕kg" 4 ucs
        (stringprep "\u33C6"))
 
-(test* "Many conversion shrink/extend string" #t
+(test* "Many conversion shrink/extend string" "アアaaααմխὒc∕kgὐ"
        ;; Just check conversion is working
-       (boolean (stringprep "アｱＡａαΑ\uFB17\u1F52\u33C6\u1F50")))
+       (stringprep "アｱＡａαΑ\uFB17\u1F52\u33C6\u1F50"))
+
+(test* "Many conversion shrink/extend string" "アアAaαΑմխὒC∕kgὐ"
+       ;; Just check conversion is working
+       (stringprep "アｱＡａαΑ\uFB17\u1F52\u33C6\u1F50" :profile "NameprepCasing"))
 
 ;; TODO more considration. need more
 

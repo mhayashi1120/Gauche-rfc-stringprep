@@ -3,7 +3,6 @@
   (use text.tr)
   (export
    stringprep stringprep-normalize
-   ;; stringprep-downcase stringprep-upcase
    )
   )
 (dynamic-load "rfc__stringprep")
@@ -30,19 +29,10 @@
 ;;; Entry point
 ;;;
 
-;; TODO stringprep -> call-stringprep-downcase
-(define (stringprep-downcase s)
-  (error "Not yet implemented"))
-
-;; TODO stringprep -> call-stringprep-upcase
-;; -> reconsider. maybe alread stringprep then need just upcase/downcase
-(define (stringprep-upcase s)
-  (error "Not yet implemented"))
-
-;; keyword (profile "Nameprep")
 ;; Supported profiles:
 ;; "Nameprep" / "KRBprep" / "Nodeprep"/ "Resourceprep"
 ;; "plain"/ "trace"/ "SASLprep"/ "ISCSIprep"/ "iSCSI"
+;; "NameprepCasing"
 
 ;;TODO
 ;; Maybe introduce destructive type `stringprep!`
@@ -51,7 +41,7 @@
 ;; - stringprep profiles.
 ;; - stringprep tables.
 ;; - stringprep flags. (with `logior`)
-(define (stringprep s :key)
-  (call-stringprep s))
+(define (stringprep s :key (profile "Nameprep"))
+  (call-stringprep s profile))
 
 (define stringprep-normalize stringprep)

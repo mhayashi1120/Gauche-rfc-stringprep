@@ -4,7 +4,7 @@
 
 (define-gauche-package "Gauche-rfc-stringprep"
   ;;
-  :version "0.0.2"
+  :version "0.0.3"
 
   ;; Description of the package.  The first line is used as a short
   ;; summary.

@@ -7,9 +7,21 @@
       :paths `(,(sys-dirname (current-load-path)))
       :error-if-not-found #f)
 
+(define (required-lib-not-found libname)
+  (format #t "~a not found.\n" libname)
+  (exit 1))
+
 ;; Here you can define handlers of configure arguments by cf-arg-enable
 ;; and cf-arg-with.  Note that --with-local is handled implicitly if you use
 ;; cf-init-gauche-extension.
+(cf-arg-with
+ 'idn
+ "  --with-idn=PATH      Use stringprep (libidn) installed under PATH."
+ (^ [arg]
+   (unless (file-exists? arg)
+     (format #t "~a not found" arg)
+     (exit 1))
+   (cf-subst-prepend 'LIBS arg)))
 
 
 ;; Initialize configure.  This creates the global context, parses
@@ -20,14 +32,10 @@
 
 (cf-check-headers '("stringprep.h"))
 
-;; TODO Check the settings valid or not. not enough understand yet.
-
-(unless (cf-package-ref 'libidn)
+(unless (cf-package-ref 'idn)
   (cf-check-lib "idn" "stringprep"
                 :if-not-found
-                (^l
-                 (format (current-error-port) "Error: libidn is required.\n")
-                 (exit 1))
+                required-lib-not-found
                 ))
 
 ;; Output

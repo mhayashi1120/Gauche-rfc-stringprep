@@ -21,18 +21,15 @@
   ;; Maybe no need support old system.
   (error "Failed load the library since not an utf-8 environment.")])
 
-
 ;;;
 ;;; API
 ;;;
 
-;; Supported profiles:
+;; Supported PROFILE:
 ;; "Nameprep" (default) / "KRBprep" / "Nodeprep"/ "Resourceprep"
 ;; "plain"/ "trace"/ "SASLprep"/ "ISCSIprep"/ "iSCSI"
 ;; "Nameprep*"
-
-;; keyword should support:
-(define (stringprep s :key (profile "Nameprep"))
-  (call-stringprep s profile))
+(define (stringprep text :key (profile "Nameprep"))
+  (call-stringprep text profile))
 
 (define stringprep-normalize stringprep)

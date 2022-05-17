@@ -12,8 +12,8 @@
 
 ;; Module concepts:
 ;; - Only support utf-8 environment.
-;; - Just call libidn* stringprep
-;; - Maybe upgrade interface with keywords.
+;; - Just call libidn* stringprep.
+;; - Maybe upgrade interface via keywords.
 ;; - Maybe need streaming interface.  (probablly maybe)
 
 (cond-expand
@@ -55,4 +55,3 @@
   (call-stringprep s))
 
 (define stringprep-normalize stringprep)
-

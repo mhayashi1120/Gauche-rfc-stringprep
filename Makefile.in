@@ -34,6 +34,7 @@ ARCH_CORE_NAME = rfc__stringprep
 ARCH_CORE_MODULE = $(ARCH_CORE_NAME).$(SOEXT)
 
 ARCHFILES = $(ARCH_CORE_MODULE)
+# TODO maybe need add submodules
 SCMFILES  = $(srcdir)/rfc/stringprep.scm
 HEADERS   =
 

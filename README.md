@@ -1,5 +1,16 @@
 # Gauche-rfc-stringprep
 
+Normalize string in gauche script.
+
+Examples:
+
+- "ｱアＡ" => "アアa"
+- "アﾅタの Nａｍe は？" => "アナタの name は?"
+
+This library just call [libidn](https://www.gnu.org/software/libidn/) `stringprep` function
+
+## Reference
+
 http://docs.python.jp/2/library/stringprep.html
 
 RFC 3454
@@ -27,12 +38,8 @@ ref: https://qiita.com/fury00812/items/b98a7f9428d1395fc230
 
 ref: Gauche git ext/charconv/jconv.c
 
-## First plan
+## TODO
 
-- canonicalize by `stringprep`
-- extend string-downcase / string-upcase (or simply introduce other procedure)
 - stringprep=? (and other comparetor stringprep>=? stringprep<=? ...)
-- TODO support kana <-> hankaku-kana seems not prepared in rfc3454.txt
-- first implementation is just same as example1.c (located `/usr/share/doc/libidn11-dev/examples/` on debian apt)
-
-
+- accept more option and consideration.
+- need keeping case option.

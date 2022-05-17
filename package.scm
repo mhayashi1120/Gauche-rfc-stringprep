@@ -4,12 +4,12 @@
 
 (define-gauche-package "Gauche-rfc-stringprep"
   ;;
-  :version "1.0"
+  :version "0.0.1"
 
   ;; Description of the package.  The first line is used as a short
   ;; summary.
-  :description "Sample package.scm\n\
-                Write your package description here."
+  :description "String preparation (mainly RFC 3454) \n\
+                Normalize a utf-8 text."
 
   ;; List of dependencies.
   ;; Example:
@@ -37,11 +37,11 @@
 
   ;; List licenses
   ;; e.g. ("BSD")
-  :licenses ()
+  :licenses ("BSD")
 
   ;; Homepage URL, if any.
   ; :homepage "http://example.com/Gauche-rfc-stringprep/"
 
   ;; Repository URL, e.g. github
-  ; :repository "http://example.com/Gauche-rfc-stringprep.git"
+  :repository "https://github.com/mhayashi1120/Gauche-rfc-stringprep.git"
   )

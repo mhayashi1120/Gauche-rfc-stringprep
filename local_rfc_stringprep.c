@@ -8,58 +8,37 @@
 
 #include "local_rfc_stringprep.h"
 
+/* Plan to implement */
 const Stringprep_profile stringprep_nameprep_downcase[] = {
   {STRINGPREP_MAP_TABLE, 0, stringprep_rfc3454_B_2},
-  {STRINGPREP_NFKC, 0, 0},
+  /* {STRINGPREP_NFKC, 0, 0}, */
   { 0 }
-};
-
-const Stringprep_profile stringprep_nameprep2[] = {
-  {STRINGPREP_MAP_TABLE, 0, stringprep_rfc3454_B_1},
-  /* {STRINGPREP_MAP_TABLE, 0, stringprep_rfc3454_B_2}, */
-  {STRINGPREP_NFKC, 0, 0},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_1_2},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_2_2},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_3},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_4},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_5},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_6},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_7},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_8},
-  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_9},
-  {STRINGPREP_BIDI, 0, 0},
-  {STRINGPREP_BIDI_PROHIBIT_TABLE, ~STRINGPREP_NO_BIDI,
-   stringprep_rfc3454_C_8},
-  {STRINGPREP_BIDI_RAL_TABLE, 0, stringprep_rfc3454_D_1},
-  {STRINGPREP_BIDI_L_TABLE, 0, stringprep_rfc3454_D_2},
-  {STRINGPREP_UNASSIGNED_TABLE, ~STRINGPREP_NO_UNASSIGNED,
-   stringprep_rfc3454_A_1},
-  {0}
 };
 
 ScmString * lib_rfc_stringprep(ScmString * s)
 {
-    const char * cStr = Scm_GetStringConst(s);
-    const int stringSize = SCM_STRING_SIZE(s) + 1024;
-    char * buf = SCM_NEW_ATOMIC_ARRAY(char, stringSize);
+    const char * inStr = Scm_GetStringConst(s);
+    const int inSize = SCM_STRING_SIZE(s);
+    /* Prepare enough size buffer (and terminated NULL). */
+    /* NOTE: After the NKFC step, almost string size will be reduced although. */
+    const int bufferSize = ( inSize * STRINGPREP_MAX_MAP_CHARS * sizeof(uint32_t) ) + 1;
+    char * buf = SCM_NEW_ATOMIC_ARRAY(char, bufferSize);
 
-    memset(buf, 0, stringSize);
-    memcpy(buf, cStr, stringSize);
+    memset(buf, 0, bufferSize);
+    memcpy(buf, inStr, inSize);
 
-    int rc = stringprep(buf, stringSize, 0, stringprep_nameprep_downcase);
+    int rc = stringprep(buf, bufferSize, 0, stringprep_nameprep);
 
-    /* TODO errors are: */
-    /* Stringprep failed (104): Could not convert string in locale encoding. */
-    /* Stringprep failed (100): Output would exceed the buffer space provided */
+    /* TODO expected errors are: */
+    /* STRINGPREP_TOO_SMALL_BUFFER: Stringprep failed (100): Output would exceed the buffer space provided */
+    /* STRINGPREP_ICONV_ERROR: Stringprep failed (104): Could not convert string in locale encoding. */
+    /* STRINGPREP_PROFILE_ERROR:  */
 
     if (rc != STRINGPREP_OK) {
-      printf ("Stringprep failed (%d): %s\n", rc, stringprep_strerror (rc));
-      /* TODO raise error? */
-      /* return SCM_MAKE_STR(sprintf("Error: %s", stringprep_strerror (rc)));; */
-      return SCM_STRING(SCM_MAKE_STR(stringprep_strerror (rc)));
-  }
-  
-  return SCM_STRING(SCM_MAKE_STR(buf));
+        Scm_Error("Failed stringprep. [%s with %d]", stringprep_strerror(rc), rc);
+    }
+
+    return SCM_STRING(SCM_MAKE_STR_COPYING(buf));
 }
 
 /*

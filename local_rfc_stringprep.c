@@ -2,17 +2,32 @@
  * local_rfc_stringprep.c
  */
 
-
 /* Upstream library */
 #include <stringprep.h>
 
 #include "local_rfc_stringprep.h"
 
-/* Plan to implement */
-const Stringprep_profile stringprep_nameprep_downcase[] = {
-  {STRINGPREP_MAP_TABLE, 0, stringprep_rfc3454_B_2},
-  /* {STRINGPREP_NFKC, 0, 0}, */
-  { 0 }
+/* Same as `stringprep_nameprep` except `stringprep_rfc3454_B_2` mapping */
+const Stringprep_profile stringprep_nameprep_keep_case[] = {
+  {STRINGPREP_MAP_TABLE, 0, stringprep_rfc3454_B_1},
+  {STRINGPREP_NFKC, 0, 0},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_1_2},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_2_2},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_3},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_4},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_5},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_6},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_7},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_8},
+  {STRINGPREP_PROHIBIT_TABLE, 0, stringprep_rfc3454_C_9},
+  {STRINGPREP_BIDI, 0, 0},
+  {STRINGPREP_BIDI_PROHIBIT_TABLE, ~STRINGPREP_NO_BIDI,
+   stringprep_rfc3454_C_8},
+  {STRINGPREP_BIDI_RAL_TABLE, 0, stringprep_rfc3454_D_1},
+  {STRINGPREP_BIDI_L_TABLE, 0, stringprep_rfc3454_D_2},
+  {STRINGPREP_UNASSIGNED_TABLE, ~STRINGPREP_NO_UNASSIGNED,
+   stringprep_rfc3454_A_1},
+  {0}
 };
 
 ScmString * lib_rfc_stringprep(ScmString * s)
@@ -28,12 +43,6 @@ ScmString * lib_rfc_stringprep(ScmString * s)
     memcpy(buf, inStr, inSize);
 
     int rc = stringprep(buf, bufferSize, 0, stringprep_nameprep);
-
-    /* TODO expected errors are: */
-    /* STRINGPREP_TOO_SMALL_BUFFER: Stringprep failed (100): Output would exceed the buffer space provided */
-    /* STRINGPREP_ICONV_ERROR: Stringprep failed (104): Could not convert string in locale encoding. */
-    /* STRINGPREP_PROFILE_ERROR:  */
-
     if (rc != STRINGPREP_OK) {
         Scm_Error("Failed stringprep. [%s with %d]", stringprep_strerror(rc), rc);
     }

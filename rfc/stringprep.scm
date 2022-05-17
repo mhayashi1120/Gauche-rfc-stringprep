@@ -30,17 +30,11 @@
 ;;;
 
 ;; Supported profiles:
-;; "Nameprep" / "KRBprep" / "Nodeprep"/ "Resourceprep"
+;; "Nameprep" (default) / "KRBprep" / "Nodeprep"/ "Resourceprep"
 ;; "plain"/ "trace"/ "SASLprep"/ "ISCSIprep"/ "iSCSI"
-;; "NameprepCasing"
+;; "Nameprep*"
 
-;;TODO
-;; Maybe introduce destructive type `stringprep!`
 ;; keyword should support:
-;; - NFKC / NFC like symbol ref https://qiita.com/fury00812/items/b98a7f9428d1395fc230
-;; - stringprep profiles.
-;; - stringprep tables.
-;; - stringprep flags. (with `logior`)
 (define (stringprep s :key (profile "Nameprep"))
   (call-stringprep s profile))
 

@@ -43,3 +43,5 @@ ref: Gauche git ext/charconv/jconv.c
 - stringprep=? (and other comparetor stringprep>=? stringprep<=? ...)
 - accept more option and consideration.
 - need keeping case option.
+- consider NFKC / NFC like symbol ref https://qiita.com/fury00812/items/b98a7f9428d1395fc230
+- Support to pass stringprep flags. (with `logior`)

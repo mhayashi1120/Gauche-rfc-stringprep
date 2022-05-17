@@ -33,7 +33,7 @@ private const Stringprep_profile stringprep_nameprep_keep_case[] = {
 };
 
 private const Stringprep_profiles local_profiles[] = {
-    {"NameprepCasing", stringprep_nameprep_keep_case},
+    {"Nameprep*", stringprep_nameprep_keep_case},
     {NULL, NULL}
 };
 

@@ -42,7 +42,7 @@
 
 (test* "Many conversion shrink/extend string" "アアAaαΑմխὒC∕kgὐ"
        ;; Just check conversion is working
-       (stringprep "アｱＡａαΑ\uFB17\u1F52\u33C6\u1F50" :profile "NameprepCasing"))
+       (stringprep "アｱＡａαΑ\uFB17\u1F52\u33C6\u1F50" :profile "Nameprep*"))
 
 ;; TODO more considration. need more
 

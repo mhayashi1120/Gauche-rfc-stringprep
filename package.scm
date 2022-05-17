@@ -40,8 +40,8 @@
   :licenses ("BSD")
 
   ;; Homepage URL, if any.
-  ; :homepage "http://example.com/Gauche-rfc-stringprep/"
+  :homepage "https://github.com/mhayashi1120/Gauche-rfc-stringprep/"
 
   ;; Repository URL, e.g. github
-  :repository "https://github.com/mhayashi1120/Gauche-rfc-stringprep.git"
+  :repository "git@github.com:mhayashi1120/Gauche-rfc-stringprep.git"
   )

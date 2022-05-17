@@ -11,17 +11,19 @@
   (format #t "~a not found.\n" libname)
   (exit 1))
 
+(define (check-with-library arg)
+  (unless (file-exists? arg)
+    (format (current-error-port) "~a not found.\n" arg)
+    (exit 1))
+  (cf-subst-prepend 'LIBS arg))
+
 ;; Here you can define handlers of configure arguments by cf-arg-enable
 ;; and cf-arg-with.  Note that --with-local is handled implicitly if you use
 ;; cf-init-gauche-extension.
 (cf-arg-with
  'idn
  "  --with-idn=PATH      Use stringprep (libidn) installed under PATH."
- (^ [arg]
-   (unless (file-exists? arg)
-     (format #t "~a not found" arg)
-     (exit 1))
-   (cf-subst-prepend 'LIBS arg)))
+ check-with-library)
 
 
 ;; Initialize configure.  This creates the global context, parses

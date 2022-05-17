@@ -46,9 +46,20 @@
        ;; Just check conversion is working
        (stringprep "アｱＡａαΑ\uFB17\u1F52\u33C6\u1F50"))
 
-(test* "Many conversion shrink/extend string" "アアAaαΑմխὒC∕kgὐ"
+(test* "Many conversion shrink/extend string (Case keeping)" "アアAaαΑմխὒC∕kgὐ"
        ;; Just check conversion is working
        (stringprep "アｱＡａαΑ\uFB17\u1F52\u33C6\u1F50" :profile "Nameprep*"))
+
+
+;; https://www.ipsj.or.jp/dp/contents/publication/37/S1001-T05.html
+(test* "Just simple test2" "ä"
+       (stringprep "\u00e4"))
+(test* "Just simple test" "ä"
+       (stringprep "\u0061\u0308"))
+(test* "Just Test working" #t
+       (boolean (stringprep "\u08a1")))
+(test* "Currently not converted" (test-error)
+       (stringprep "\u0628\u0654"))
 
 ;; TODO more considration. need more
 

@@ -12,21 +12,18 @@
 ;; Module concepts:
 ;; - Only support utf-8 environment.
 ;; - Just call libidn* stringprep.
-;; - Maybe upgrade interface via keywords.
+;; - Accept option via keywords interface.
 ;; - Maybe need streaming interface.  (probablly maybe)
 
 (cond-expand
  [gauche.ces.utf8]
  [else
   ;; Maybe no need support old system.
-  (error "Failed load the library since not utf-8 environment.")]
- )
+  (error "Failed load the library since not an utf-8 environment.")])
 
-
-;; TODO build-transliterator from text.tr
 
 ;;;
-;;; Entry point
+;;; API
 ;;;
 
 ;; Supported profiles:

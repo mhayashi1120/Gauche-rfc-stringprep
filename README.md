@@ -12,8 +12,6 @@ This library just call [libidn](https://www.gnu.org/software/libidn/) `stringpre
 
 ## Reference
 
-http://docs.python.jp/2/library/stringprep.html
-
 RFC 3454
    [STRINGPREP] Hoffman, P. and M. Blanchet, "Preparation of
                 Internationalized Strings ("stringprep")", RFC 3454,
@@ -24,25 +22,20 @@ RFC 3491
                 Profile for Internationalized Domain Names (IDN)", RFC
                 3491, March 2003.
 
-
-https://www.ipsj.or.jp/dp/contents/publication/37/S1001-T05.html
-
-
-https://www.rfc-editor.org/rfc/rfc3454.txt
-https://www.rfc-editor.org/rfc/rfc3491.txt
-https://www.rfc-editor.org/rfc/rfc8264.txt
-https://www.rfc-editor.org/rfc/rfc7790.txt
+- https://www.rfc-editor.org/rfc/rfc3454.txt
+- https://www.rfc-editor.org/rfc/rfc3491.txt
+- https://www.rfc-editor.org/rfc/rfc8264.txt
+- https://www.rfc-editor.org/rfc/rfc7790.txt
 
 
+ref: https://www.ipsj.or.jp/dp/contents/publication/37/S1001-T05.html
 ref: https://qiita.com/fury00812/items/b98a7f9428d1395fc230
-
-
 ref: Gauche git ext/charconv/jconv.c
+ref: http://docs.python.jp/2/library/stringprep.html
 
 ## TODO
 
 - stringprep=? (and other comparetor stringprep>=? stringprep<=? ...)
-- accept more option and consideration.
-- need keeping case option.
+- accept more option and need consideration.
 - consider NFKC / NFC like symbol ref https://qiita.com/fury00812/items/b98a7f9428d1395fc230
 - Support to pass stringprep flags. (with `logior`)

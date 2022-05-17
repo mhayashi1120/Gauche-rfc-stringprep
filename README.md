@@ -6,6 +6,7 @@ Examples:
 
 - "ｱアＡ" => "アアa"
 - "アﾅタの Nａｍe は？" => "アナタの name は?"
+- "テスト①" => "テスト1"
 
 This library just call [libidn](https://www.gnu.org/software/libidn/) `stringprep` function
 

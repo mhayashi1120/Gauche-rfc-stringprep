@@ -12,14 +12,20 @@
 (test* "Example1 (Japanese)" "アアa"
        (stringprep "ｱアＡ"))
 
-(test* "Example2 (Japanese" "アナタの name は?"
+(test* "Example2 (Japanese)" "アナタの name は?"
        (stringprep "アﾅタの Nａｍe は？"))
+
+(test* "Example3 (Japanese 丸囲み文字)" "テスト1"
+       (stringprep "テスト①"))
 
 (test* "ascii conversion" "a"
        (stringprep "A"))
 
 (test* "ascii (Japan Zenkaku)" "aa"
        (stringprep "Ａａ"))
+
+(test* "Circled number (Japan Zenkaku)" "1210"
+       (stringprep "①②⑩"))
 
 (test* "empty string is harmless" ""
        (stringprep ""))

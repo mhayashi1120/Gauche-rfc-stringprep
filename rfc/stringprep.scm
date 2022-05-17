@@ -5,7 +5,7 @@
    stringprep stringprep-normalize
    )
   )
-(dynamic-load "rfc__stringprep")
+(dynamic-load "rfc--stringprep")
 
 (select-module rfc.stringprep)
 

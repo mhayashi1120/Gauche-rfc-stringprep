@@ -5,7 +5,7 @@ Normalize string in gauche script.
 Examples:
 
 - "ｱアＡ" => "アアa"
-- "アﾅタの Nａｍe は？" => "アナタの name は?"
+- "アﾅタの Nａｍe は何て゛すか？" => "アナタの name は何ですか?"
 - "テスト①" => "テスト1"
 
 This library just call [libidn](https://www.gnu.org/software/libidn/) `stringprep` function
@@ -28,10 +28,12 @@ RFC 3491
 - https://www.rfc-editor.org/rfc/rfc7790.txt
 
 
-ref: https://www.ipsj.or.jp/dp/contents/publication/37/S1001-T05.html
-ref: https://qiita.com/fury00812/items/b98a7f9428d1395fc230
+ref: [デジタルプラクティス](https://www.ipsj.or.jp/dp/contents/publication/37/S1001-T05.html)
+ref: [Unicode正規化 - Qiita](https://qiita.com/fury00812/items/b98a7f9428d1395fc230)
 ref: Gauche git ext/charconv/jconv.c
-ref: http://docs.python.jp/2/library/stringprep.html
+ref: (Dead) http://docs.python.jp/2/library/stringprep.html
+ref: [Gauche - A Scheme Implementation](http://practical-scheme.net/gauche/memo-str-j.html)
+
 
 ## TODO
 

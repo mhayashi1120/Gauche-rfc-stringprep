@@ -83,6 +83,7 @@ ScmString * lib_rfc_stringprep(ScmString * s, ScmString * profile)
     memcpy(buf, inStr, inSize);
 
     int rc = stringprep(buf, bufferSize, 0, profileTable);
+
     if (rc != STRINGPREP_OK) {
         Scm_Error("Failed stringprep. [%s with %d]", stringprep_strerror(rc), rc);
     }

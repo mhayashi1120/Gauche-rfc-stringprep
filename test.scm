@@ -1,10 +1,10 @@
 ;;;
-;;; Test local_rfc_stringprep
+;;; Test rfc.stringprep
 ;;;
 
 (use gauche.test)
 
-(test-start "local_rfc_stringprep")
+(test-start "rfc.stringprep")
 
 (use rfc.stringprep)
 (test-module 'rfc.stringprep)
@@ -12,8 +12,11 @@
 (test* "Example1 (Japanese)" "アアa"
        (stringprep "ｱアＡ"))
 
-(test* "Example2 (Japanese)" "アナタの name は?"
-       (stringprep "アﾅタの Nａｍe は？"))
+(test* "Example2 (Japanese)" "アナタの name は何ですか?"
+       (stringprep "アﾅタの Nａｍe は何ですか？"))
+
+(test* "Example2-2 (Japanese)" "アナタの Name は何ですか?"
+       (stringprep "アﾅタの Nａｍe は何ですか？" :profile "Nameprep*"))
 
 (test* "Example3 (Japanese 丸囲み文字)" "テスト1"
        (stringprep "テスト①"))
@@ -61,7 +64,7 @@
 (test* "Currently not converted" (test-error)
        (stringprep "\u0628\u0654"))
 
-;; TODO more considration. need more
+;; TODO more considration. need more tests
 
 ;; If you don't want `gosh' to exit with nonzero status even if
 ;; the test fails, pass #f to :exit-on-failure.

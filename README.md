@@ -12,6 +12,8 @@ This library just call [libidn](https://www.gnu.org/software/libidn/) `stringpre
 
 ## Japanese note
 
+最初に要約すると、日本人の **一般的なテキスト入力** に対してはまともに動くはずです。
+
 ユーザ入力や海外から飛んでくるメール(濁点が分離してる文字が混じったりする)を **雑に正規化** して表示したいときに使っています。
 PRECIS framework というのが新しい仕様らしいのですが、まだよく分からないので手をつけてあった古いコード(このリポジトリ)を公開しておきます。
 
@@ -21,6 +23,7 @@ PRECIS framework というのが新しい仕様らしいのですが、まだよ
 - 分離した濁点(゛)、半濁点(゜)の一文字への統合
 - 全角ａｓｃｉｉ から ascii (小文字)への変換
 - 丸囲み数字をただの ascii 数字へ置換
+- null byte 以外の control char は変換なし
 - 独自拡張: :profile に "Nameprep*" を指定することで、Ascii の case が保持できる。(よく使いそうなので)
 
 # Reference

@@ -24,6 +24,19 @@
 (test* "ascii conversion" "a"
        (stringprep "A"))
 
+(test* "null character" (test-error)
+       (stringprep "\x00;"))
+
+(test* "backspace character" "\x7f;"
+       (stringprep "\x7f;"))
+
+(test* "prohibited character" (test-error)
+       (stringprep "\x80;"))
+
+(let1 control-chars ($ string $* map ucs->char $ iota 31 1)
+  (test* "ascii controlchar conversion (as-is)" control-chars
+         (stringprep control-chars)))
+
 (test* "ascii (Japan Zenkaku)" "aa"
        (stringprep "Ａａ"))
 

@@ -14,7 +14,7 @@ This library just call [libidn](https://www.gnu.org/software/libidn/) `stringpre
 
 最初に要約すると、日本人の **一般的なテキスト入力** に対しては絵文字を含めてまともに動くはずです。
 
-ユーザ入力や海外から飛んでくるメール(濁点が分離してる文字が混じったりする)を **雑に正規化** して表示したいときに使っています。
+ユーザ入力や海外から飛んでくるメール(濁点が分離してる文字が混じったりする)を **雑に正規化** して表示したい、名寄せしたいときに使っています。
 PRECIS framework というのが新しい仕様らしいのですが、まだよく分からないので手をつけてあった古いコード(このリポジトリ)を公開しておきます。
 
 大雑把にいうと日本語文字に対しては以下のように働くらしい。
@@ -47,13 +47,13 @@ RFC 3491
 - https://www.rfc-editor.org/rfc/rfc8264.txt
 
 
-ref: [デジタルプラクティス](https://www.ipsj.or.jp/dp/contents/publication/37/S1001-T05.html)
-ref: [Unicode正規化 - Qiita](https://qiita.com/fury00812/items/b98a7f9428d1395fc230)
-ref: Gauche git ext/charconv/jconv.c
-ref: (Dead) http://docs.python.jp/2/library/stringprep.html
-ref: [Gauche - A Scheme Implementation](http://practical-scheme.net/gauche/memo-str-j.html)
-ref: https://tex2e.github.io/rfc-translater/html/rfc7564.html
-ref: https://tex2e.github.io/rfc-translater/html/rfc8264.html
+- ref: [デジタルプラクティス](https://www.ipsj.or.jp/dp/contents/publication/37/S1001-T05.html)
+- ref: [Unicode正規化 - Qiita](https://qiita.com/fury00812/items/b98a7f9428d1395fc230)
+- ref: Gauche git ext/charconv/jconv.c
+- ref: (Dead) http://docs.python.jp/2/library/stringprep.html
+- ref: [Gauche - A Scheme Implementation](http://practical-scheme.net/gauche/memo-str-j.html)
+- ref: https://tex2e.github.io/rfc-translater/html/rfc7564.html
+- ref: https://tex2e.github.io/rfc-translater/html/rfc8264.html
 
 # TODO
 

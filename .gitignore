@@ -1,7 +1,9 @@
-*.gpd
-*.log
-Makefile
-VERSION
+# Gauche package generated
+/*.gpd
+/Makefile
+/VERSION
 
+# Files generated when compiles
+*.log
 *.o
 *.so

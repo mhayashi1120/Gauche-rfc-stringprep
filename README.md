@@ -8,7 +8,13 @@ Examples:
 - "アﾅタの Nａｍe は何て゛すか？" => "アナタの name は何ですか?"
 - "テスト①" => "テスト1"
 
-This library just call [libidn](https://www.gnu.org/software/libidn/) `stringprep` function
+This library just call [libidn](https://www.gnu.org/software/libidn/) `stringprep` function.
+
+Maybe need:
+
+```
+sudo apt install libidn11-dev libidn11
+```
 
 ## Japanese note
 
@@ -17,7 +23,7 @@ This library just call [libidn](https://www.gnu.org/software/libidn/) `stringpre
 ユーザ入力や海外から飛んでくるメール(濁点が分離してる文字が混じったりする)を **雑に正規化** して表示したい、名寄せしたいときに使っています。
 PRECIS framework というのが新しい仕様らしいのですが、まだよく分からないので手をつけてあった古いコード(このリポジトリ)を公開しておきます。
 
-大雑把にいうと日本語文字に対しては以下のように働くらしい。
+大雑把にいうと日本語話者が使いそうな文字に対しては以下のように働くらしい。
 
 - いわゆる半角ｶﾅから全角カナへの変換
 - 分離した濁点(゛)、半濁点(゜)の一文字への統合

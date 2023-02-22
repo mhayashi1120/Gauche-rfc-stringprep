@@ -77,8 +77,12 @@
 (test* "Currently not converted" (test-error)
        (stringprep "\u0628\u0654"))
 
+(test* "Error test1" (test-error)
+       (stringprep 1))
+(test* "Error test2" (test-error)
+       (stringprep #u8(1 5)))
+
+
 ;; TODO more considration. need more tests
 
-;; If you don't want `gosh' to exit with nonzero status even if
-;; the test fails, pass #f to :exit-on-failure.
 (test-end :exit-on-failure #t)

@@ -25,10 +25,12 @@
 ;;; API
 ;;;
 
-;; Supported PROFILE:
-;; "Nameprep" (default) / "KRBprep" / "Nodeprep"/ "Resourceprep"
-;; "plain"/ "trace"/ "SASLprep"/ "ISCSIprep"/ "iSCSI"
+;; ## String normalization. RFC3454 (stringprep)
+;; - :profile : Define conversion style. Valid values are:
+;;    "Nameprep" (default) / "KRBprep" / "Nodeprep"/ "Resourceprep"
+;;    "plain"/ "trace"/ "SASLprep"/ "ISCSIprep"/ "iSCSI"
 ;; "Nameprep*"
+;; -> <string>
 (define (stringprep text :key (profile "Nameprep"))
   (call-stringprep text profile))
 

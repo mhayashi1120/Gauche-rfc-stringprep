@@ -1,5 +1,7 @@
 # Gauche-rfc-stringprep
 
+[![CI](https://github.com/mhayashi1120/Gauche-rfc-stringprep/actions/workflows/build.yml/badge.svg)](https://github.com/mhayashi1120/Gauche-rfc-stringprep/actions/workflows/build.yml)
+
 Normalize string in gauche script.
 
 Examples:

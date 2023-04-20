@@ -15,6 +15,6 @@ git diff . | patch --strip 1 --directory "${WORK_DIR}"
 
 cd "${WORK_DIR}"
 
-docker run -v ${WORK_DIR}:/home/app --rm -ti practicalscheme/gauche sh -c 'cd /home/app && ./_docker/setup.sh && ./configure && make check'
+docker run -v ${WORK_DIR}:/home/app --rm -ti practicalscheme/gauche sh -c 'cd /home/app && ./_docker/setup.sh && ./run-ci.sh'
 
 rm -rf "${WORK_DIR}"

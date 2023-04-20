@@ -2,5 +2,5 @@
 
 set -eu
 
-./configure
+./configure --enable-werror
 make check

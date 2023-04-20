@@ -18,6 +18,12 @@
  "  --with-idn=PATH      Use stringprep (libidn) installed under PATH.
 ")
 
+(cf-arg-enable
+ 'werror
+ "  \
+  --enable-werror         Append -Werror option to C compiler
+  --disable-werror        Default behavior
+")
 
 ;; Initialize configure.  This creates the global context, parses
 ;; command-line args and sets up default values.
@@ -28,6 +34,10 @@
 (define (required-lib-not-found libname)
   (errmsg "~a not found.\n" libname)
   (exit 1))
+
+(and-let* ([werror (cf-feature-ref 'werror)]
+           [(equal? werror "yes")])
+  (cf-subst-append 'CFLAGS "-Werror"))
 
 (cf-check-headers
  '("stringprep.h")

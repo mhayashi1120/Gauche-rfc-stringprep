@@ -22,6 +22,6 @@ jobs:
       - name: Setup package
         run: |
           apt update;
-          apt install -y libidn11-dev
+          apt install -y libidn11-dev;
       - name: CI
         run: ./run-ci.sh

@@ -9,3 +9,6 @@
 
 # Files generated every build.
 *.log
+
+# Files generated configured
+stringprep_deps.h

@@ -41,6 +41,7 @@ HEADERS   =
 TARGET    = $(ARCHFILES)
 CLEANFILES =
 CONFIG_GENERATED = Makefile config.cache config.log config.status \
+		   stringprep_deps.h \
 		   configure.lineno autom4te*.cache $(PACKAGE).gpd
 
 GAUCHE_PKGINCDIR  = "$(DESTDIR)@GAUCHE_PKGINCDIR@"

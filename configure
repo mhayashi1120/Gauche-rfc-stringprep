@@ -8,7 +8,7 @@
       :error-if-not-found #f)
 
 (define (errmsg fmt . args)
-  (apply format (current-error-port) fmt arg))
+  (apply format (current-error-port) fmt args))
 
 ;; Here you can define handlers of configure arguments by cf-arg-enable
 ;; and cf-arg-with.  Note that --with-local is handled implicitly if you use

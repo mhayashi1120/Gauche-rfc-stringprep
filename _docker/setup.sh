@@ -2,5 +2,5 @@
 
 set -eu
 
-apt update;
+apt update -y;
 apt install -y libidn11-dev;

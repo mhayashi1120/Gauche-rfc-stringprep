@@ -3,4 +3,4 @@
 set -eu
 
 ./configure --enable-werror
-make check
+make check install validate

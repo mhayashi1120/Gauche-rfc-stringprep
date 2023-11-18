@@ -4,7 +4,7 @@
 
 (define-gauche-package "Gauche-rfc-stringprep"
   ;;
-  :version "0.0.10"
+  :version "0.0.11"
 
   ;; Description of the package.  The first line is used as a short
   ;; summary.
@@ -23,6 +23,7 @@
   ;;      :providing-modules (util.algorithm1 util.algorithm1.option)
   :providing-modules (
                       rfc.stringprep
+                      rfc.stringprep.utility
                       )
 
   ;; List name and contact info of authors.
